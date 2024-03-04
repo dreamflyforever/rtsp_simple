@@ -14,8 +14,8 @@ makebuilddir:
 	-@if [ ! -d $(OBJ_DIR)  ]; then mkdir -p $(OBJ_DIR); fi
 
 $(TARGET) : $(LIB_RTSP_CLIENT_SERVER)
-	g++ -o rtspclient $(CXXFLAGS) rtspclient.cpp -lRTSPClient -L./
-	g++ -o rtspserver $(CXXFLAGS) rtspserver.cpp RTSPLiveStreamer.cpp -lRTSPServer -lRTSPClient -L./
+	arm-rockchip830-linux-uclibcgnueabihf-g++ -o rtspclient $(CXXFLAGS) rtspclient.cpp -lRTSPClient -L./
+	arm-rockchip830-linux-uclibcgnueabihf-g++ -o rtspserver $(CXXFLAGS) rtspserver.cpp RTSPLiveStreamer.cpp -lRTSPServer -lRTSPClient -L./
 	
 clean : 
 	rm -rf $(TARGET) $(LIB_RTSP_CLIENT_SERVER)

@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
 #else
 	RTSPCommonEnv::SetDebugFlag(DEBUG_FLAG_RTSP);
 #endif
-	char *strURL = "rtsp://222.96.113.48:4554/AVStream1_2";
+	char *strURL = "rtsp://0.0.0.0/live/0";
 
 	fp_dump = fopen("video.264", "wb");
 

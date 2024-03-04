@@ -1,12 +1,12 @@
 OBJ_DIR = ./objs
-CC = gcc
-CXX = g++
+CC =arm-rockchip830-linux-uclibcgnueabihf-gcc
+CXX =arm-rockchip830-linux-uclibcgnueabihf-g++
 INC =	-I./Common -I./OS_Common -I./Sock -I./Util \
 		-I./RTSPClient/Common -I./RTSPClient/RTCP -I./RTSPClient/RTP -I./RTSPClient/RTSP \
 		-I./RTSPServer/Common -I./RTSPServer/RTSP
 CFLAGS = -fno-stack-protector -Wall -W -O2 -fPIC -g -DLINUX $(INC)
 CXXFLAGS = -fno-stack-protector -Wall -W -O2 -fPIC -g -DLINUX $(INC)
-AR = ar
+AR = arm-rockchip830-linux-uclibcgnueabihf-ar
 RANLIB = ranlib
 
 RTSP_COMMON_OBJS = 	$(OBJ_DIR)/RTSPCommon.o \
@@ -96,9 +96,9 @@ clean :
 	rm -rf $(OBJ_DIR)/*.o $(OBJ_DIR)/*.a $(OBJ_DIR)/*.so
 
 $(TARGET_RTSPCLIENT) : $(LIB_ARCHIVE_RTSPCLIENT)
-	g++ -shared -o $(TARGET_RTSPCLIENT) -pthread -Wl,--whole-archive $(LIB_ARCHIVE_RTSPCLIENT) -Wl,--no-whole-archive
+	arm-rockchip830-linux-uclibcgnueabihf-g++ -shared -o $(TARGET_RTSPCLIENT) -pthread -Wl,--whole-archive $(LIB_ARCHIVE_RTSPCLIENT) -Wl,--no-whole-archive
 $(TARGET_RTSPSERVER) : $(LIB_ARCHIVE_RTSPSERVER)
-	g++ -shared -o $(TARGET_RTSPSERVER) -pthread -Wl,--whole-archive $(LIB_ARCHIVE_RTSPSERVER) -Wl,--no-whole-archive
+	arm-rockchip830-linux-uclibcgnueabihf-g++ -shared -o $(TARGET_RTSPSERVER) -pthread -Wl,--whole-archive $(LIB_ARCHIVE_RTSPSERVER) -Wl,--no-whole-archive
 
 $(TARGET_RTSP_COMMON) : $(RTSP_COMMON_OBJS)
 	$(AR) rcv $(TARGET_RTSP_COMMON) $(RTSP_COMMON_OBJS)
